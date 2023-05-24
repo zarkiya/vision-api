@@ -21,6 +21,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -45,7 +46,7 @@ public class MainActivity extends Activity {
 
     private static final int REQUEST_PERMISSION = 1;
     private static final int REQUEST_IMAGE_PICK = 2;
-    private static final String API_URL = "https://us-central1-capstone-test-386804.cloudfunctions.net/img-function";
+    private static final String API_URL = "https://asia-southeast2-firstproj-382606.cloudfunctions.net/ImageClassificationNewest";
 
     private ProgressBar progressBar;
     private ImageView imageView;
@@ -55,6 +56,7 @@ public class MainActivity extends Activity {
     private String selectedImageFilename;
     private Bitmap selectedImageBitmap;
     private String selectedAnnotatedImageUrl;
+    private TextView title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +68,7 @@ public class MainActivity extends Activity {
         selectButton = findViewById(R.id.selectButton);
         downloadButton = findViewById(R.id.downloadButton);
         progressBar = findViewById(R.id.progressBar);
+        title = findViewById(R.id.title);
 
         uploadButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -208,6 +211,7 @@ public class MainActivity extends Activity {
                     try {
                         JSONObject jsonObject = new JSONObject(json);
                         final String annotatedImageUrl = jsonObject.optString("annotatedImageUrl");
+                        final String label = jsonObject.optString("label");
 
                         // Show toast notification
                         runOnUiThread(new Runnable() {
@@ -216,6 +220,8 @@ public class MainActivity extends Activity {
                                 // Hide progress bar
                                 progressBar.setVisibility(View.GONE);
                                 Toast.makeText(MainActivity.this, "Response received", Toast.LENGTH_SHORT).show();
+                                // Show label
+                                title.setText("Label: " + label);
                             }
                         });
 

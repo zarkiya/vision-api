@@ -13,7 +13,7 @@
         android:textStyle="italic"
         android:textColor="@color/black"
         android:layout_centerHorizontal="true"
-        android:text="Auto Label Pictures"/>
+        android:text="..........."/>
 
     <TextView
         android:id="@+id/subtitle"
@@ -45,7 +45,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/selectButton"
         android:layout_centerHorizontal="true"
-        android:text="Upload Image" />
+        android:text="Predict Image" />
 
     <Button
         android:id="@+id/downloadButton"
@@ -53,8 +53,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/uploadButton"
         android:layout_centerHorizontal="true"
-        android:text="Download Annotated Image"
-        android:enabled="false" />
+        android:enabled="false"
+        android:text="Download" />
 
     <ProgressBar
         android:id="@+id/progressBar"
