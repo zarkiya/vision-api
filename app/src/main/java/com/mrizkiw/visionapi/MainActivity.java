@@ -46,7 +46,7 @@ public class MainActivity extends Activity {
 
     private static final int REQUEST_PERMISSION = 1;
     private static final int REQUEST_IMAGE_PICK = 2;
-    private static final String API_URL = "https://asia-southeast2-firstproj-382606.cloudfunctions.net/ImageClassificationNewest";
+    private static final String API_URL = "https://api-endpoint-5aw64gznma-as.a.run.app/predict";
 
     private ProgressBar progressBar;
     private ImageView imageView;
